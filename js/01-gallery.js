@@ -1,5 +1,6 @@
 import { galleryItems } from "./gallery-items.js";
 // Change code below this line
+
 const container = document.querySelector(".gallery");
 const markup = createMarkup(galleryItems);
 
@@ -10,8 +11,8 @@ function createMarkup(arr) {
   return arr
     .map(({ preview, original, description }) => {
       return `<li class="gallery__item">
-        <a href="${original}" class="gallery__link">
-        <img src="${preview}" alt="${description}" data-source="${original}" class="gallery__image"/>
+        <a class="gallery__link" href="${original}">
+        <img class="gallery__image" src="${preview}" data-source="${original}" alt="${description}"/>
         </a>
         </li>`;
     })
@@ -36,7 +37,6 @@ function handlePhotoClick(event) {
   }
   event.preventDefault();
   const datasetSource = event.target.dataset.source;
-  //   if (!datasetSource) return;
   instance.element().querySelector("img").src = datasetSource;
   instance.show();
 }
